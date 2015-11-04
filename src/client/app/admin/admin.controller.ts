@@ -1,19 +1,22 @@
+///<reference path="../app.module.ts"/>
+///<reference path="../blocks/logger/logger.ts"/>
 namespace app.admin {
-  'use strict';
+    'use strict';
 
-  interface IAdminVm {
-    title: string;
-  }
-  export class AdminController implements IAdminVm {
-    title: string = 'Admin';
-
-    static $inject: Array<string> = ['logger'];
-    constructor(private logger: blocks.logger.Logger) {
-      this.logger.info('Activated Admin View');
+    interface IAdminVm {
+        title: string;
     }
-  }
+    export class AdminController implements IAdminVm {
+        title:string = 'Admin';
 
-  angular
-    .module('app.admin')
-    .controller('AdminController', AdminController);
+        static $inject:Array<string> = ['logger'];
+
+        constructor(private logger:blocks.logger.Logger) {
+            this.logger.info('Activated Admin View');
+        }
+    }
+
+    angular
+        .module('app.admin')
+        .controller('AdminController', AdminController);
 }
